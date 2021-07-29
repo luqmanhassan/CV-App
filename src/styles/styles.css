@@ -1,8 +1,8 @@
 *,
 html,
 :root {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -10,7 +10,8 @@ html,
 .main {
   border: 5px solid black;
   margin: 100px 300px;
-  padding: 50px;
+  padding: 5px;
+  overflow: hidden;
 }
 
 .main h1 {
@@ -19,20 +20,150 @@ html,
   text-align: center;
 }
 
+.main #printbtn {
+  margin: 0px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.main #printbtn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
 h3 {
   text-align: center;
 }
 
-.generalDiv {
+.generalComponent {
+  margin: 20px 0;
+}
+
+.generalComponent .generalDiv {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
-  -ms-grid-rows: auto auto;
-      grid-template-rows: auto auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.generalDiv input {
-  width: 50px;
+.generalComponent .generalDiv input {
+  width: 100px;
+}
+
+.generalComponent button {
+  margin: 0px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.generalComponent button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.educationComponent {
+  margin: 20px 0;
+}
+
+.educationComponent .educationDiv {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.educationComponent .btnDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.educationComponent .btnDiv button {
+  margin: 0px 10px;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.educationComponent .btnDiv button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.educationComponent #addEducation {
+  margin: 10px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.educationComponent #addEducation:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.experienceComponent {
+  margin: 20px 0;
+}
+
+.experienceComponent .experienceDiv {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.experienceComponent .btnDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.experienceComponent .btnDiv button {
+  margin: 0px 10px;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.experienceComponent .btnDiv button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.experienceComponent #addExperience {
+  margin: 10px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+}
+
+.experienceComponent #addExperience:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.experienceComponent #textarea {
+  width: 530px;
+  margin: 10px auto;
+  display: block;
 }
 /*# sourceMappingURL=styles.css.map */

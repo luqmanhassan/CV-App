@@ -3,7 +3,7 @@ import React from 'react';
 class General extends React.Component {
   render() {
     return (
-      <div>
+      <div class="generalComponent">
         <h3>General Info</h3>
         <div className="generalDiv">
           <label>First Name</label>
@@ -15,6 +15,7 @@ class General extends React.Component {
           <label>Phone #</label>
           <input type="text" id="phone_input" />
         </div>
+        <button id="saveGeneral">Save</button>
       </div>
     );
   }

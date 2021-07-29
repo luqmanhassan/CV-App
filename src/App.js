@@ -12,6 +12,7 @@ function App() {
       <General />
       <Education />
       <Experience />
+      <button id="printbtn">Print</button>
     </div>
   );
 }

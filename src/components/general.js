@@ -6,15 +6,10 @@ class General extends React.Component {
     this.state = {fname: null, lname: null, email: null, phone: null};
   }
 
-  savee = (ev) => {
-    ev.target.style.display = 'none';
-    document.getElementById('infoDiv').style.display = 'block';
-    document.getElementById('generalDiv').style.display = 'none';
-    // this.displayInfo();
-  };
-
   displayInfo = (ev) => {
-    return <p>First Name: {this.state.fname}</p>;
+    ev.target.style.display = 'none';
+    document.getElementById('gen_Info').style.display = 'block';
+    document.getElementById('generalDiv').style.display = 'none';
   };
 
   render() {
@@ -55,15 +50,16 @@ class General extends React.Component {
             }}
           />
         </div>
-        <button id="saveGeneral" onClick={this.savee}>
-          Save
-        </button>
+
         <Info
           fname={this.state.fname}
           lname={this.state.lname}
           email={this.state.email}
           phone={this.state.phone}
         />
+        <button id="saveGeneral" onClick={this.displayInfo}>
+          Save
+        </button>
       </div>
     );
   }
@@ -71,7 +67,7 @@ class General extends React.Component {
 
 function Info(props) {
   return (
-    <div className="infoDiv" id="infoDiv">
+    <div className="gen_Info" id="gen_Info">
       <p>First Name: {props.fname}</p>
       <p>Last Name: {props.lname}</p>
       <p>Email: {props.email}</p>
@@ -80,7 +76,7 @@ function Info(props) {
         id="editBTN"
         onClick={() => {
           document.getElementById('generalDiv').style.display = 'grid';
-          document.getElementById('infoDiv').style.display = 'none';
+          document.getElementById('gen_Info').style.display = 'none';
           document.getElementById('saveGeneral').style.display = 'block';
         }}
       >

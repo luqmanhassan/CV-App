@@ -12,7 +12,14 @@ function App() {
       <General />
       <Education />
       <Experience />
-      <button id="printbtn">Print</button>
+      <button
+        id="printbtn"
+        onClick={() => {
+          window.print();
+        }}
+      >
+        Print
+      </button>
     </div>
   );
 }

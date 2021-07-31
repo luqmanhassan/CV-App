@@ -3,13 +3,18 @@ import React from 'react';
 class Experience extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {company: null, position: null, from: null, to: null};
+    this.state = {
+      company: null,
+      position: null,
+      from: null,
+      to: null,
+      tasks: null,
+    };
   }
   displayInfo = (ev) => {
     //ev.target.style.display = 'none';
     document.getElementById('saveExp').style.display = 'none';
-
-    // document.getElementById('deleteBTN').style.display = 'none';
+    document.getElementById('exp_editBTN').style.display = 'block';
     document.getElementById('exp_Info').style.display = 'block';
     document.getElementById('experienceDiv').style.display = 'none';
     document.getElementById('textarea').style.display = 'none';
@@ -25,6 +30,7 @@ class Experience extends React.Component {
             onChange={(ev) => {
               this.setState({company: ev.target.value});
             }}
+            placeholder="Company Name"
           />
           <label>Position Title</label>
           <input
@@ -32,6 +38,7 @@ class Experience extends React.Component {
             onChange={(ev) => {
               this.setState({position: ev.target.value});
             }}
+            placeholder="Posiiton Title"
           />
           <label>From</label>
           <input
@@ -50,18 +57,31 @@ class Experience extends React.Component {
             required
           />
         </div>
-        <textarea id="textarea" />
+        <textarea id="textarea" placeholder="Main Tasks" />
 
         <Info
           company={this.state.company}
           position={this.state.position}
           from={this.state.from}
           to={this.state.to}
+          tasks={this.state.tasks}
         />
 
         <div className="btnDiv">
           <button id="saveExp" onClick={this.displayInfo}>
             Save
+          </button>
+          <button
+            id="exp_editBTN"
+            onClick={() => {
+              document.getElementById('saveExp').style.display = 'block';
+              document.getElementById('exp_editBTN').style.display = 'none';
+              document.getElementById('exp_Info').style.display = 'none';
+              document.getElementById('experienceDiv').style.display = 'grid';
+              document.getElementById('textarea').style.display = 'block';
+            }}
+          >
+            Edit
           </button>
           {/* <button id="deleteBTN">Delete</button>*/}
         </div>
@@ -78,18 +98,7 @@ function Info(props) {
       <p>Position: {props.position}</p>
       <p>From: {props.from}</p>
       <p>To: {props.to}</p>
-      <button
-        id="editBTN"
-        onClick={() => {
-          document.getElementById('saveExp').style.display = 'block';
-          // document.getElementById('deleteBTN').style.display = 'block';
-          document.getElementById('exp_Info').style.display = 'none';
-          document.getElementById('experienceDiv').style.display = 'grid';
-          document.getElementById('textarea').style.display = 'block';
-        }}
-      >
-        Edit
-      </button>
+      <p>Main Tasks: {props.tasks}</p>
     </div>
   );
 }

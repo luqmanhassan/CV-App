@@ -16,7 +16,7 @@ class General extends React.Component {
     return (
       <div class="generalComponent">
         <h3>General Info</h3>
-        <div className="generalDiv" id="generalDiv">
+        <form className="generalDiv" id="generalDiv">
           <label>First Name</label>
           <input
             type="text"
@@ -24,6 +24,7 @@ class General extends React.Component {
             onChange={(ev) => {
               this.setState({fname: ev.target.value});
             }}
+            placeholder="First Name"
           />
           <label>Last Name</label>
           <input
@@ -32,6 +33,7 @@ class General extends React.Component {
             onChange={(ev) => {
               this.setState({lname: ev.target.value});
             }}
+            placeholder="Last Name"
           />
           <label>Email</label>
           <input
@@ -40,6 +42,7 @@ class General extends React.Component {
             onChange={(ev) => {
               this.setState({email: ev.target.value});
             }}
+            placeholder="Email"
           />
           <label>Phone #</label>
           <input
@@ -48,9 +51,9 @@ class General extends React.Component {
             onChange={(ev) => {
               this.setState({phone: ev.target.value});
             }}
+            placeholder="Phone #"
           />
-        </div>
-
+        </form>
         <Info
           fname={this.state.fname}
           lname={this.state.lname}

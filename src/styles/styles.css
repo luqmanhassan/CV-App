@@ -75,36 +75,28 @@ h3 {
 
 .educationComponent {
   margin: 20px 0;
+  /*
+  .btnDiv {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 0px 10px;
+      @include styleBTN;
+      &:hover {
+        @include btnHover;
+      }
+    }
+  }
+*/
 }
 
-.educationComponent .educationDiv {
+.educationComponent .ed_form {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.educationComponent .btnDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.educationComponent .btnDiv button {
-  margin: 0px 10px;
-  padding: 5px 15px;
-  border: 3px solid black;
-}
-
-.educationComponent .btnDiv button:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
 }
 
 .educationComponent #addEducation {
@@ -185,6 +177,10 @@ h3 {
 .exp_Info {
   margin: auto;
   width: 400px;
+  display: none;
+}
+
+#exp_editBTN {
   display: none;
 }
 

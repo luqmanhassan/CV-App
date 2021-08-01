@@ -73,11 +73,12 @@ h3 {
 // Style Education Component Here
 .educationComponent {
   margin: 20px 0;
-  .educationDiv {
+  .ed_form {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-around;
   }
+  /*
   .btnDiv {
     display: flex;
     justify-content: center;
@@ -89,6 +90,7 @@ h3 {
       }
     }
   }
+*/
   #addEducation {
     margin: 10px auto;
     display: block;
@@ -149,6 +151,9 @@ h3 {
   display: none;
 }
 
+#exp_editBTN {
+  display: none;
+}
 //Universal
 button {
   display: block;
@@ -158,3 +163,5 @@ button {
     @include btnHover;
   }
 }
+
+// input[type='submit']

@@ -42,7 +42,7 @@ html,
 h3 {
   text-align: center;
 }
-
+/*
 // Style General Component Here
 .generalComponent {
   margin: 20px 0;
@@ -69,6 +69,7 @@ h3 {
   width: 400px;
   display: none;
 }
+*/
 
 // Style Education Component Here
 .educationComponent {
@@ -78,19 +79,7 @@ h3 {
     grid-template-columns: auto auto;
     justify-content: space-around;
   }
-  /*
-  .btnDiv {
-    display: flex;
-    justify-content: center;
-    button {
-      margin: 0px 10px;
-      @include styleBTN;
-      &:hover {
-        @include btnHover;
-      }
-    }
-  }
-*/
+
   #addEducation {
     margin: 10px auto;
     display: block;
@@ -154,6 +143,7 @@ h3 {
 #exp_editBTN {
   display: none;
 }
+
 //Universal
 button {
   display: block;

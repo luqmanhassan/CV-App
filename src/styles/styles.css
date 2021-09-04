@@ -37,34 +37,26 @@ h3 {
   text-align: center;
 }
 
+/*
+// Style General Component Here
 .generalComponent {
   margin: 20px 0;
-}
-
-.generalComponent .generalDiv {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.generalComponent .generalDiv input {
-  width: 100px;
-}
-
-.generalComponent button {
-  margin: 0px auto;
-  display: block;
-  padding: 5px 15px;
-  border: 3px solid black;
-}
-
-.generalComponent button:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
+  .generalDiv {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    input {
+      width: 100px;
+    }
+  }
+  button {
+    margin: 0px auto;
+    display: block;
+    @include styleBTN;
+    &:hover {
+      @include btnHover;
+    }
+  }
 }
 
 #gen_Info {
@@ -72,22 +64,9 @@ h3 {
   width: 400px;
   display: none;
 }
-
+*/
 .educationComponent {
   margin: 20px 0;
-  /*
-  .btnDiv {
-    display: flex;
-    justify-content: center;
-    button {
-      margin: 0px 10px;
-      @include styleBTN;
-      &:hover {
-        @include btnHover;
-      }
-    }
-  }
-*/
 }
 
 .educationComponent .ed_form {

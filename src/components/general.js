@@ -1,4 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
+const GenInfo = styled.div`
+  margin: auto;
+  width: 400px;
+  display: none;
+`;
+const GeneralComponent = styled.div`
+  margin: 20px 0;
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+`;
+
+const Input = styled.input`
+  width: 100px;
+`;
+const Button = styled.button`
+  margin: 0px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+`;
 
 class General extends React.Component {
   constructor(props) {
@@ -14,11 +45,11 @@ class General extends React.Component {
 
   render() {
     return (
-      <div class="generalComponent">
+      <GeneralComponent class="generalComponent">
         <h3>General Info</h3>
-        <form className="generalDiv" id="generalDiv">
+        <Form className="generalDiv" id="generalDiv">
           <label>First Name</label>
-          <input
+          <Input
             type="text"
             id="firstName_input"
             onChange={(ev) => {
@@ -27,7 +58,7 @@ class General extends React.Component {
             placeholder="First Name"
           />
           <label>Last Name</label>
-          <input
+          <Input
             type="text"
             id="lastName_input"
             onChange={(ev) => {
@@ -36,7 +67,7 @@ class General extends React.Component {
             placeholder="Last Name"
           />
           <label>Email</label>
-          <input
+          <Input
             type="text"
             id="email_input"
             onChange={(ev) => {
@@ -45,7 +76,7 @@ class General extends React.Component {
             placeholder="Email"
           />
           <label>Phone #</label>
-          <input
+          <Input
             type="text"
             id="phone_input"
             onChange={(ev) => {
@@ -53,24 +84,24 @@ class General extends React.Component {
             }}
             placeholder="Phone #"
           />
-        </form>
+        </Form>
         <Info
           fname={this.state.fname}
           lname={this.state.lname}
           email={this.state.email}
           phone={this.state.phone}
         />
-        <button id="saveGeneral" onClick={this.displayInfo}>
+        <Button id="saveGeneral" onClick={this.displayInfo}>
           Save
-        </button>
-      </div>
+        </Button>
+      </GeneralComponent>
     );
   }
 }
 
 function Info(props) {
   return (
-    <div className="gen_Info" id="gen_Info">
+    <GenInfo className="gen_Info" id="gen_Info">
       <p>First Name: {props.fname}</p>
       <p>Last Name: {props.lname}</p>
       <p>Email: {props.email}</p>
@@ -85,7 +116,7 @@ function Info(props) {
       >
         Edit
       </button>
-    </div>
+    </GenInfo>
   );
 }
 

@@ -15,9 +15,6 @@ const Form = styled.form`
   justify-content: space-around;
 `;
 
-const Input = styled.input`
-  width: 100px;
-`;
 const Button = styled.button`
   margin: 0px auto;
   display: block;
@@ -49,7 +46,7 @@ class General extends React.Component {
         <h3>General Info</h3>
         <Form className="generalDiv" id="generalDiv">
           <label>First Name</label>
-          <Input
+          <input
             type="text"
             id="firstName_input"
             onChange={(ev) => {
@@ -58,7 +55,7 @@ class General extends React.Component {
             placeholder="First Name"
           />
           <label>Last Name</label>
-          <Input
+          <input
             type="text"
             id="lastName_input"
             onChange={(ev) => {
@@ -67,7 +64,7 @@ class General extends React.Component {
             placeholder="Last Name"
           />
           <label>Email</label>
-          <Input
+          <input
             type="text"
             id="email_input"
             onChange={(ev) => {
@@ -76,7 +73,7 @@ class General extends React.Component {
             placeholder="Email"
           />
           <label>Phone #</label>
-          <Input
+          <input
             type="text"
             id="phone_input"
             onChange={(ev) => {

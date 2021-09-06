@@ -1,4 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const EdInfo = styled.div`
+  margin: auto;
+  width: 400px;
+  display: none;
+`;
+const EducationComponent = styled.div`
+  margin: 20px 0;
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+`;
+
+const Button = styled.button`
+  margin: 0px auto;
+  display: block;
+  padding: 5px 15px;
+  border: 3px solid black;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+`;
 
 class Education extends React.Component {
   constructor(props) {
@@ -12,16 +41,12 @@ class Education extends React.Component {
     };
   }
   displayInfo = (ev) => {
-    // ev.target.style.display = 'none';
-    // document.getElementById('deleteBTN').style.display = 'none';
     document.getElementById('saveEd').style.display = 'none';
     document.getElementById('ed_Info').style.display = 'block';
     document.getElementById('ed_form').style.display = 'none';
-    // document.getElementById('editBTN').style.display = 'block';
   };
 
   add = () => {
-    // this.setState({clickedAdd: true});
     let element = <Info />;
     let thing = document.getElementById('educationDiv');
     document.createElement(element);
@@ -29,10 +54,10 @@ class Education extends React.Component {
   };
   render() {
     return (
-      <div className="educationComponent">
+      <EducationComponent className="educationComponent">
         <h3>Education</h3>
         <div className="educationDiv" id="educationDiv">
-          <form className="ed_form" id="ed_form">
+          <Form className="ed_form" id="ed_form">
             <label>School Name</label>
             <input
               type="text"
@@ -64,7 +89,7 @@ class Education extends React.Component {
                 this.setState({to: ev.target.value});
               }}
             />
-          </form>
+          </Form>
         </div>
 
         <Info
@@ -74,42 +99,32 @@ class Education extends React.Component {
           to={this.state.to}
         />
 
-        <button id="saveEd" onClick={this.displayInfo}>
+        <Button id="saveEd" onClick={this.displayInfo}>
           Save
-        </button>
-
-        {/*
-        <div>
-          <button id="addEducation" onClick={this.add}>
-            Add
-          </button>
-          <button id="deleteBTN">Delete</button>
-        </div>*/}
-      </div>
+        </Button>
+      </EducationComponent>
     );
   }
 }
 
 function Info(props) {
   return (
-    <div className="ed_Info" id="ed_Info">
+    <EdInfo className="ed_Info" id="ed_Info">
       <p>School Name: {props.school}</p>
       <p>Area of Study: {props.study}</p>
       <p>From: {props.from}</p>
       <p>To: {props.to}</p>
-      <button
+      <Button
         id="editBTN"
         onClick={() => {
           document.getElementById('saveEd').style.display = 'block';
-          // document.getElementById('deleteBTN').style.display = 'block';
-
           document.getElementById('ed_Info').style.display = 'none';
           document.getElementById('ed_form').style.display = 'grid';
         }}
       >
         Edit
-      </button>
-    </div>
+      </Button>
+    </EdInfo>
   );
 }
 export default Education;

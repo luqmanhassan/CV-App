@@ -1,4 +1,47 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ExpInfo = styled.div`
+  margin: auto;
+  width: 400px;
+  display: none;
+`;
+const ExpComponent = styled.div`
+  margin: 20px 0;
+`;
+
+const ExpDiv = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+`;
+
+const BTNDiv = styled.div`
+  display: flex;
+    justify-content: center;
+    button {
+      margin: 0px 10px;
+        padding: 5px 15px;
+  border: 3px solid black;
+      &:hover {
+        background-color: black;
+  color: white;
+  cursor: pointer;
+      }
+`;
+
+const TextArea = styled.textarea`
+  resize: vertical;
+  width: 60%;
+  margin: 10px auto;
+  display: block;
+  min-height: 50px;
+  padding: 10px 20px;
+`;
+
+const EditBTN = styled.button`
+  display: none;
+`;
 
 class Experience extends React.Component {
   constructor(props) {
@@ -12,7 +55,6 @@ class Experience extends React.Component {
     };
   }
   displayInfo = (ev) => {
-    //ev.target.style.display = 'none';
     document.getElementById('saveExp').style.display = 'none';
     document.getElementById('exp_editBTN').style.display = 'block';
     document.getElementById('exp_Info').style.display = 'block';
@@ -21,9 +63,9 @@ class Experience extends React.Component {
   };
   render() {
     return (
-      <div className="experienceComponent">
+      <ExpComponent className="experienceComponent">
         <h3>Experience</h3>
-        <div className="experienceDiv" id="experienceDiv">
+        <ExpDiv className="experienceDiv" id="experienceDiv">
           <label>Company Name</label>
           <input
             type="text"
@@ -56,8 +98,8 @@ class Experience extends React.Component {
             }}
             required
           />
-        </div>
-        <textarea id="textarea" placeholder="Main Tasks" />
+        </ExpDiv>
+        <TextArea id="textarea" placeholder="Main Tasks" />
 
         <Info
           company={this.state.company}
@@ -67,11 +109,11 @@ class Experience extends React.Component {
           tasks={this.state.tasks}
         />
 
-        <div className="btnDiv">
+        <BTNDiv className="btnDiv">
           <button id="saveExp" onClick={this.displayInfo}>
             Save
           </button>
-          <button
+          <EditBTN
             id="exp_editBTN"
             onClick={() => {
               document.getElementById('saveExp').style.display = 'block';
@@ -82,24 +124,22 @@ class Experience extends React.Component {
             }}
           >
             Edit
-          </button>
-          {/* <button id="deleteBTN">Delete</button>*/}
-        </div>
-        {/*<button id="addExperience">Add</button>*/}
-      </div>
+          </EditBTN>
+        </BTNDiv>
+      </ExpComponent>
     );
   }
 }
 
 function Info(props) {
   return (
-    <div className="exp_Info" id="exp_Info">
+    <ExpInfo className="exp_Info" id="exp_Info">
       <p>Company: {props.company}</p>
       <p>Position: {props.position}</p>
       <p>From: {props.from}</p>
       <p>To: {props.to}</p>
       <p>Main Tasks: {props.tasks}</p>
-    </div>
+    </ExpInfo>
   );
 }
 

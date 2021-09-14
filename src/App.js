@@ -3,49 +3,33 @@ import Education from './components/education.js';
 import Experience from './components/experience.js';
 import General from './components/general.js';
 import './styles/styles.css';
-import styled from 'styled-components';
+// MUI Bellow
+import {Typography, Container, Button} from '@mui/material';
+import PrintIcon from '@mui/icons-material/Print';
 
-const Main = styled.div`
-  border: 5px solid black;
-  margin: 50px auto;
-  max-width: 50%;
-  padding: 5px;
-`;
-
-const H1 = styled.h1`
-  text-decoration: underline;
-  font-size: 50px;
-  text-align: center;
-`;
-
-const BTN = styled.button`
-  margin: 0px auto;
-  display: block;
-  padding: 5px 15px;
-  border: 3px solid black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-  }
-`;
 function App() {
   return (
-    <Main>
-      <H1>CV APP</H1>
+    <Container maxWidth="md">
+      <Typography variant="h1" sx={{textAlign: 'center', margin: '20px 0px'}}>
+        CV App
+      </Typography>
       <General />
       <Education />
       <Experience />
-      <BTN
+      <Button
         id="printbtn"
+        variant="contained"
+        size="large"
+        startIcon={<PrintIcon />}
+        color="primary"
+        sx={{display: 'flex', justifyContent: 'center'}}
         onClick={() => {
           window.print();
         }}
       >
         Print
-      </BTN>
-    </Main>
+      </Button>
+    </Container>
   );
 }
 

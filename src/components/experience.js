@@ -1,47 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const ExpInfo = styled.div`
-  margin: auto;
-  width: 400px;
-  display: none;
-`;
-const ExpComponent = styled.div`
-  margin: 20px 0;
-`;
-
-const ExpDiv = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-around;
-`;
-
-const BTNDiv = styled.div`
-  display: flex;
-    justify-content: center;
-    button {
-      margin: 0px 10px;
-        padding: 5px 15px;
-  border: 3px solid black;
-      &:hover {
-        background-color: black;
-  color: white;
-  cursor: pointer;
-      }
-`;
-
-const TextArea = styled.textarea`
-  resize: vertical;
-  width: 60%;
-  margin: 10px auto;
-  display: block;
-  min-height: 50px;
-  padding: 10px 20px;
-`;
-
-const EditBTN = styled.button`
-  display: none;
-`;
+import {Typography, Button, TextField, Grid} from '@mui/material';
+import DatePicker from '@mui/lab/DatePicker';
 
 class Experience extends React.Component {
   constructor(props) {
@@ -49,57 +8,111 @@ class Experience extends React.Component {
     this.state = {
       company: null,
       position: null,
-      from: null,
-      to: null,
+      from: '10/15/2021',
+      to: '10/15/2021',
       tasks: null,
     };
   }
-  displayInfo = (ev) => {
-    document.getElementById('saveExp').style.display = 'none';
-    document.getElementById('exp_editBTN').style.display = 'block';
-    document.getElementById('exp_Info').style.display = 'block';
-    document.getElementById('experienceDiv').style.display = 'none';
-    document.getElementById('textarea').style.display = 'none';
-  };
+
   render() {
     return (
-      <ExpComponent className="experienceComponent">
-        <h3>Experience</h3>
-        <ExpDiv className="experienceDiv" id="experienceDiv">
-          <label>Company Name</label>
-          <input
-            type="text"
-            onChange={(ev) => {
-              this.setState({company: ev.target.value});
+      <Grid
+        item
+        container
+        className="experienceComponent"
+        direction="column"
+        spacing={4}
+      >
+        <Grid item>
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              backgroundColor: 'secondary.main',
+              borderRadius: '5px',
             }}
-            placeholder="Company Name"
-          />
-          <label>Position Title</label>
-          <input
-            type="text"
+          >
+            Experience
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          container
+          className="experienceDiv"
+          id="experienceDiv"
+          component="form"
+          spacing={2}
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Grid item>
+            <TextField
+              label="Company Name"
+              sx={{bgcolor: 'white'}}
+              variant="outlined"
+              size="small"
+              onChange={(ev) => {
+                this.setState({company: ev.target.value});
+              }}
+            />
+          </Grid>
+
+          <Grid item>
+            <TextField
+              label="Position Title"
+              sx={{bgcolor: 'white'}}
+              variant="outlined"
+              size="small"
+              onChange={(ev) => {
+                this.setState({position: ev.target.value});
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <DatePicker
+              label="From"
+              value={this.state.from}
+              onChange={(date) => {
+                let d =
+                  date.getMonth() +
+                  '/' +
+                  date.getDate() +
+                  '/' +
+                  date.getFullYear();
+                this.setState({from: d});
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </Grid>
+          <Grid item>
+            <DatePicker
+              label="To"
+              value={this.state.to}
+              onChange={(date) => {
+                let d =
+                  date.getMonth() +
+                  '/' +
+                  date.getDate() +
+                  '/' +
+                  date.getFullYear();
+                this.setState({to: d});
+              }}
+              renderInput={(params) => <TextField {...params} />}
+              sx={{color: 'white'}}
+            />
+          </Grid>
+        </Grid>
+        <Grid item id="textarea" align="center">
+          <TextField
             onChange={(ev) => {
-              this.setState({position: ev.target.value});
+              this.setState({tasks: ev.target.value});
             }}
-            placeholder="Posiiton Title"
+            placeholder="Main Tasks"
+            sx={{width: '30%'}}
           />
-          <label>From</label>
-          <input
-            type="date"
-            onChange={(ev) => {
-              this.setState({from: ev.target.value});
-            }}
-            required
-          />
-          <label>To</label>
-          <input
-            type="date"
-            onChange={(ev) => {
-              this.setState({to: ev.target.value});
-            }}
-            required
-          />
-        </ExpDiv>
-        <TextArea id="textarea" placeholder="Main Tasks" />
+        </Grid>
 
         <Info
           company={this.state.company}
@@ -108,38 +121,87 @@ class Experience extends React.Component {
           to={this.state.to}
           tasks={this.state.tasks}
         />
-
-        <BTNDiv className="btnDiv">
-          <button id="saveExp" onClick={this.displayInfo}>
+        <Grid item align="center">
+          <Button
+            id="saveExp"
+            onClick={() => {
+              document.getElementById('saveExp').style.display = 'none';
+              document.getElementById('exp_editBTN').style.display = 'flex';
+              document.getElementById('exp_Info').style.display = 'flex';
+              document.getElementById('experienceDiv').style.display = 'none';
+              document.getElementById('textarea').style.display = 'none';
+            }}
+            variant="contained"
+            color="secondary"
+            size="small"
+          >
             Save
-          </button>
-          <EditBTN
+          </Button>
+        </Grid>
+        <Grid item align="center">
+          <Button
             id="exp_editBTN"
             onClick={() => {
-              document.getElementById('saveExp').style.display = 'block';
+              document.getElementById('saveExp').style.display = 'flex';
               document.getElementById('exp_editBTN').style.display = 'none';
               document.getElementById('exp_Info').style.display = 'none';
-              document.getElementById('experienceDiv').style.display = 'grid';
+              document.getElementById('experienceDiv').style.display = 'flex';
               document.getElementById('textarea').style.display = 'block';
             }}
+            sx={{display: 'none'}}
+            variant="contained"
+            color="secondary"
+            size="small"
           >
             Edit
-          </EditBTN>
-        </BTNDiv>
-      </ExpComponent>
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }
 
 function Info(props) {
   return (
-    <ExpInfo className="exp_Info" id="exp_Info">
-      <p>Company: {props.company}</p>
-      <p>Position: {props.position}</p>
-      <p>From: {props.from}</p>
-      <p>To: {props.to}</p>
-      <p>Main Tasks: {props.tasks}</p>
-    </ExpInfo>
+    <Grid
+      container
+      item
+      className="exp_Info"
+      id="exp_Info"
+      spacing={2}
+      direction="column"
+      sx={{
+        display: 'none',
+        justifyContent: 'center',
+        my: '10px',
+      }}
+    >
+      <Grid item mx="30%">
+        <Typography sx={{backgroundColor: 'white', p: '10px'}}>
+          Company: {props.company}
+        </Typography>
+      </Grid>
+      <Grid item mx="30%">
+        <Typography sx={{backgroundColor: 'white', p: '10px'}}>
+          Position: {props.position}
+        </Typography>
+      </Grid>
+      <Grid item mx="30%">
+        <Typography sx={{backgroundColor: 'white', p: '10px'}}>
+          From: {props.from}
+        </Typography>
+      </Grid>
+      <Grid item mx="30%">
+        <Typography sx={{backgroundColor: 'white', p: '10px'}}>
+          To: {props.to}
+        </Typography>
+      </Grid>
+      <Grid item mx="30%">
+        <Typography sx={{backgroundColor: 'white', p: '10px'}}>
+          Main Tasks: {props.tasks}
+        </Typography>
+      </Grid>
+    </Grid>
   );
 }
 
